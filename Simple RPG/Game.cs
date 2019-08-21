@@ -155,6 +155,7 @@ namespace Simple_RPG
             if (spellAction == "fire" || spellAction == "Fire")
             {
                 Console.WriteLine(playerName + " casts fire!");
+                //checks playerMana
                 if (playerMana > playerManaMin)
                 {
                     Console.WriteLine("The Carbuncle takes " + fireDamage + " damage!");
@@ -186,6 +187,7 @@ namespace Simple_RPG
             else if (spellAction == "ice" || spellAction == "Ice")
             {
                 Console.WriteLine(playerName + " casts ice!");
+                //checks playerMana
                 if (playerMana > playerManaMin)
                 {
                     Console.WriteLine("The Carbuncle takes " + iceDamage + " damage!");
@@ -216,6 +218,7 @@ namespace Simple_RPG
             else if (spellAction == "thunder" || spellAction == "Thunder")
             {
                 Console.WriteLine(playerName + " casts thunder!");
+                //checks playerMana
                 if (playerMana > playerManaMin)
                 {
                     Console.WriteLine("The Carbuncle takes " + thunderDamage + " damage!");
@@ -247,17 +250,24 @@ namespace Simple_RPG
             else if (spellAction == "heal" || spellAction == "Heal")
             {
                 Console.WriteLine(playerName + " casts heal!");
-                if (playerHealth > 0 && playerHealth < playerMaxHealth)
+                if (playerMana > playerManaMin)
                 {
-                    playerHealth = playerHealth + healDamage;
-                    Console.WriteLine(playerName + " has restored " + healDamage + " health!");
-                    Console.WriteLine(playerName + " now has " + playerHealth + " life reamining!");
-                    playerMana = playerMana - 25;
+                    if (playerHealth > 0 && playerHealth < playerMaxHealth)
+                    {
+                        playerHealth = playerHealth + healDamage;
+                        Console.WriteLine(playerName + " has restored " + healDamage + " health!");
+                        Console.WriteLine(playerName + " now has " + playerHealth + " life reamining!");
+                        playerMana = playerMana - 25;
+                    }
+                    else if (playerHealth <= 0 || playerHealth >= playerMaxHealth)
+                    {
+                        Console.WriteLine(playerName + "'s spell fizzles!");
+                        playerMana = playerMana - 25;
+                    }
                 }
-                else if (playerHealth <= 0 || playerHealth >= playerMaxHealth)
+                else if (playerMana <= playerManaMin)
                 {
-                    Console.WriteLine(playerName + "'s spell fizzles!");
-                    playerMana = playerMana - 25;
+                    Console.WriteLine("The spell fizzles!");
                 }
             }         
             return true;
