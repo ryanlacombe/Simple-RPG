@@ -106,6 +106,8 @@ namespace Simple_RPG
             {
                 //monster defeat
                 Console.WriteLine("The Carbuncle has been defeated!");
+                playerExp = playerExp + 10;
+                Console.WriteLine(playerName + " has gained 10 experience!");
                 return true;
             }
             return true;
@@ -147,6 +149,8 @@ namespace Simple_RPG
                 {
                     //monster defeat
                     Console.WriteLine("The Carbuncle has been defeated!");
+                    playerExp = playerExp + 10;
+                    Console.WriteLine(playerName + " has gained 10 experience!");
                     return true;
                 }
             }
@@ -161,6 +165,8 @@ namespace Simple_RPG
                 {
                     //monster defeat
                     Console.WriteLine("The Carbuncle has been defeated!");
+                    playerExp = playerExp + 10;
+                    Console.WriteLine(playerName + " has gained 10 experience!");
                     return true;
                 }
             }
@@ -175,6 +181,8 @@ namespace Simple_RPG
                 {
                     //monster defeat
                     Console.WriteLine("The Carbuncle has been defeated!");
+                    playerExp = playerExp + 10;
+                    Console.WriteLine(playerName + " has gained 10 experience!");
                     return true;
                 }
             } 
